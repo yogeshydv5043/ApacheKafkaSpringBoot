@@ -35,7 +35,7 @@ public class KafkaConfig {
     }
 
 
-    // 🔹 1️⃣ String Producer Factory
+    // String Producer Factory
     @Bean(name = "stringFactory")
     public ProducerFactory<String, String> stringProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -47,13 +47,13 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
-  //   🔹 3️⃣ KafkaTemplate for String Messages
+  //  KafkaTemplate for String Messages
     @Bean(name = "stringTemplate")
     public KafkaTemplate<String, String> stringKafkaTemplate() {
         return new KafkaTemplate<>(stringProducerFactory());
     }
 
-    // 🔹 2️⃣ Json Producer Factory
+    //  Json Producer Factory
     @Bean(name = "jsonFactory")
     public ProducerFactory<String, Object> jsonProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -65,7 +65,7 @@ public class KafkaConfig {
 
 
 
-    // 🔹 4️⃣ KafkaTemplate for Json Messages
+    //  KafkaTemplate for Json Messages
     @Bean(name = "jsonTemplate")
     public KafkaTemplate<String, Object> jsonKafkaTemplate() {
         return new KafkaTemplate<>(jsonProducerFactory());
